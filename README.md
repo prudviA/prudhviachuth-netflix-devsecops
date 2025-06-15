@@ -17,7 +17,8 @@ Ensure the following security ports added into ec2 instance security group
 •	8080 PORTS FOR JENKINS
 •	9000 PORTS FOR SONARQUBE
 •	8081 PORTS FOR DOCKER IMAGE
- 
+ ![Screenshot 2025-06-15 130650](https://github.com/user-attachments/assets/2b84ea1f-2679-41dc-9a4b-52106ffca551)
+
 Step 2: Clone the code:
 •	Update all the packages and then clone the code.
 •	Clone your application's code repository onto the EC2 instance:
@@ -259,6 +260,11 @@ pipeline{
         }
     }
 }
+
+![Screenshot 2025-06-15 130437](https://github.com/user-attachments/assets/5a95dc04-1f7c-4ef3-b027-6cd761d70b55)
+![Screenshot 2025-06-15 130542](https://github.com/user-attachments/assets/aa35e79a-dcdc-49d9-a284-36f7e8704404)
+
+
 #### replace your tmdb api key and docker hub name
 In mean time pipeline is creating we will create Prometheus and node exporter, Grafana on monitor server:
 Phase 4: Monitoring
@@ -424,6 +430,9 @@ Step 9: Add Prometheus Data Source:
 •	Click on the "Add data source" button.
 •	Choose "Prometheus" as the data source type.
 •	In the "HTTP" section:
+![Screenshot 2025-06-15 130601](https://github.com/user-attachments/assets/28b771fa-b95f-437a-8cb0-1559b89a73d1)
+
+![Screenshot 2025-06-15 130620](https://github.com/user-attachments/assets/cddb812a-a74c-45a3-9d03-e53c3b315c6f)
 
 •	Set the "URL" to http://localhost:9090 (assuming Prometheus is running on the same server).
 •	Click the "Save & Test" button to ensure the data source is working.
@@ -454,7 +463,8 @@ Install Node Exporter using Helm
 •	To begin monitoring your Kubernetes cluster, you'll install the Prometheus Node Exporter. This component allows you to collect system-level metrics from your cluster nodes. Here are the steps to install the Node Exporter using Helm
 •	open your ubuntu terminal on local machine did not require any ec2 instance
 •	so let's open your ubuntu terminal
-    
+    ![Screenshot 2025-06-15 130629](https://github.com/user-attachments/assets/5817cd96-4f27-4e5e-bed9-28cc1f1d08d1)
+
 before we have to create eks cluster on aws free account, open eks (elastic Kubernetes service)
 •	Click on create cluster 
 •	Name: Netflix
@@ -564,7 +574,15 @@ ok
     metrics_path: '/metrics'
     static_configs:
       - targets: ['node1Ip:9100']
-     
+     ![Screenshot 2025-06-15 130624](https://github.com/user-attachments/assets/a5ea84e9-8c88-4cbb-a56d-b9547147fa3c)
+![Screenshot 2025-06-15 130620](https://github.com/user-attachments/assets/635cdc93-f26f-4b3a-9![Screenshot 2025-06-15 130639](https://github.com/user-attachments/assets/84b11f23-6037-4ab9-8fff-21935d582b9b)
+19f-1af43c91a8a2)
+![Screenshot 2025-06-15 130650](https://github.com/user-attachments/assets/ce117ea3-1e3d-4965-a4c6-544990f46f1c)![Screenshot 2025-06-15 130704](https://github.com/user-attachments/assets/9ca9cd85-46d5-4dd7-8b09-c04a8246eb03)
+![Screenshot 2025-06-15 130710](https://github.com/user-attachments/assets/92650f23-6b54-4ac2-9975-c7eef16ab656)
+![Screenshot 2025-06-15 130717](https://github.com/user-attachments/assets/18843701-561a-4633-b94a-549b1bb81965)
+
+![Screenshot 2025-06-15 140352](https://github.com/user-attachments/assets/cb64e583-8110-442d-9dcf-a492d113ae1b)
+
 •	Replace 'your-job-name' with a descriptive name for your job. The static_configs section specifies the targets to scrape metrics from, and in this case, it's set to nodeip:9001.
 •	Don't forget to reload or restart Prometheus to apply these changes to your configuration.
 •	To deploy an application with ArgoCD, you can follow these steps, which I'll outline in Markdown format:
